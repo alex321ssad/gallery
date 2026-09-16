@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Meine Bildergalerie</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: #f2f0ed;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #333;
+        }
+
+        /* Überschrift */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #777;
+            font-family: sans-serif;
+            font-size: 15px;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .gallery-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .caption {
+            text-align: center;
+            padding: 12px 5px 6px;
+            font-size: 16px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.90);
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #ddd;
+        }
+
+        /* Mobil */
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 12px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .gallery-item {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Meine Bildergalerie</h1>
+        <p>Eine kleine Sammlung besonderer Bilder</p>
+    </header>
+
+
+    <div class="gallery">
+
+        <a class="gallery-link" href="#bild1">
+            <img class="gallery-item" src="bild1.jpg" alt="Bild 1">
+            <div class="caption">Bild 1</div>
+        </a>
+
+        <a class="gallery-link" href="#bild2">
+            <img class="gallery-item" src="bild2.jpg" alt="Bild 2">
+            <div class="caption">Bild 2</div>
+        </a>
+
+        <a class="gallery-link" href="#bild3">
+            <img class="gallery-item" src="bild3.jpg" alt="Bild 3">
+            <div class="caption">Bild 3</div>
+        </a>
+
+        <a class="gallery-link" href="#bild4">
+            <img class="gallery-item" src="bild4.jpg" alt="Bild 4">
+            <div class="caption">Bild 4</div>
+        </a>
+
+        <a class="gallery-link" href="#bild5">
+            <img class="gallery-item" src="bild5.png" alt="Bild 5">
+            <div class="caption">Bild 5</div>
+        </a>
+
+        <a class="gallery-link" href="#bild6">
+            <img class="gallery-item" src="bild6.png" alt="Bild 6">
+            <div class="caption">Bild 6</div>
+        </a>
+
+        <a class="gallery-link" href="#bild7">
+            <img class="gallery-item" src="bild7.png" alt="Bild 7">
+            <div class="caption">Bild 7</div>
+        </a>
+
+        <a class="gallery-link" href="#bild8">
+            <img class="gallery-item" src="bild8.jpg" alt="Bild 8">
+            <div class="caption">Bild 8</div>
+        </a>
+
+        <a class="gallery-link" href="#bild9">
+            <img class="gallery-item" src="bild9.jpg" alt="Bild 9">
+            <div class="caption">Bild 9</div>
+        </a>
+
+        <a class="gallery-link" href="#bild10">
+            <img class="gallery-item" src="bild10.jpg" alt="Bild 10">
+            <div class="caption">Bild 10</div>
+        </a>
+
+        <a class="gallery-link" href="#bild11">
+            <img class="gallery-item" src="bild11.jpg" alt="Bild 11">
+            <div class="caption">Bild 11</div>
+        </a>
+
+        <a class="gallery-link" href="#bild12">
+            <img class="gallery-item" src="bild12.jpg" alt="Bild 12">
+            <div class="caption">Bild 12</div>
+        </a>
+
+        <a class="gallery-link" href="#bild13">
+            <img class="gallery-item" src="bild13.jpg" alt="Bild 13">
+            <div class="caption">Bild 13</div>
+        </a>
+
+        <a class="gallery-link" href="#bild14">
+            <img class="gallery-item" src="bild14.jpg" alt="Bild 14">
+            <div class="caption">Bild 14</div>
+        </a>
+
+        <a class="gallery-link" href="#bild15">
+            <img class="gallery-item" src="bild15.jpg" alt="Bild 15">
+            <div class="caption">Bild 15</div>
+        </a>
+
+        <a class="gallery-link" href="#bild16">
+            <img class="gallery-item" src="bild16.jpg" alt="Bild 16">
+            <div class="caption">Bild 16</div>
+        </a>
+
+    </div>
+
+
+    <!-- Großansicht -->
+
+    <div id="bild1" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild1.jpg" alt="Bild 1">
+    </div>
+
+    <div id="bild2" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild2.jpg" alt="Bild 2">
+    </div>
+
+    <div id="bild3" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild3.jpg" alt="Bild 3">
+    </div>
+
+    <div id="bild4" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild4.jpg" alt="Bild 4">
+    </div>
+
+    <div id="bild5" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild5.png" alt="Bild 5">
+    </div>
+
+    <div id="bild6" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild6.png" alt="Bild 6">
+    </div>
+
+    <div id="bild7" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild7.png" alt="Bild 7">
+    </div>
+
+    <div id="bild8" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild8.jpg" alt="Bild 8">
+    </div>
+
+    <div id="bild9" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild9.jpg" alt="Bild 9">
+    </div>
+
+    <div id="bild10" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild10.jpg" alt="Bild 10">
+    </div>
+
+    <div id="bild11" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild11.jpg" alt="Bild 11">
+    </div>
+
+    <div id="bild12" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild12.jpg" alt="Bild 12">
+    </div>
+
+    <div id="bild13" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild13.jpg" alt="Bild 13">
+    </div>
+
+    <div id="bild14" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild14.jpg" alt="Bild 14">
+    </div>
+
+    <div id="bild15" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild15.jpg" alt="Bild 15">
+    </div>
+
+    <div id="bild16" class="lightbox">
+        <a href="#" class="close">&times;</a>
+        <img src="bild16.jpg" alt="Bild 16">
+    </div>
+
+</body>
+</html>
+```
